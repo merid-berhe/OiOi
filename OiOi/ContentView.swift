@@ -8,14 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = UserViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            VStack(spacing: 20) {
+                if viewModel.isLoading {
+                    ProgressView()
+                } else if let user = viewModel.currentUser {
+                    Text("Welcome, \(user.name)!")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    
+                    Text(user.email)
+                        .font(.title2)
+                        .foregroundColor(.secondary)
+                    
+                    Spacer()
+                } else {
+                    Text("Welcome to OiOi")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    
+                    Button("Load User") {
+                        viewModel.fetchUser()
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+            }
+            .padding()
+            .navigationTitle("Home")
         }
-        .padding()
+        .onAppear {
+            viewModel.fetchUser()
+        }
     }
 }
 
