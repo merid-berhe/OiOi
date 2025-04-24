@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>OiOi needs access to your microphone to allow you to record audio messages.</string>
 	<key>GIDClientID</key>
 	<string>504131628719-vbdlgrphucrgrogcg5sst9r494b8bj4h.apps.googleusercontent.com</string>
 	<key>CFBundleURLTypes</key>
