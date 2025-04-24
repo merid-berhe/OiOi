@@ -7,9 +7,9 @@ import SwiftUI // For Alert presentation state
 class RecordViewModel: ObservableObject {
     // Dependencies (Injected or retrieved)
     // Assuming these services are thread-safe or also @MainActor isolated if accessed across threads
-    private var audioRecorder: AudioRecorderService
-    private var audioPostService: AudioPostService
-    private var authService: AuthenticationService
+    var audioRecorder: AudioRecorderService
+    var audioPostService: AudioPostService
+    var authService: AuthenticationService
 
     // Published properties mirroring the View's State (Updates must be on Main Thread)
     @Published var title = ""
